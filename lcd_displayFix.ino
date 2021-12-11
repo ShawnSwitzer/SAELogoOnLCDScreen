@@ -1,7 +1,9 @@
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>      
 
+//Created new object that connected to the Arduino board.
 LiquidCrystal_I2C lcd(0x27,20,4);     
+//The byte arrays were created using the website https://maxpromer.github.io/LCD-Character-Creator/
 byte fullBox[] = 
 {
   B11111,
@@ -109,10 +111,12 @@ byte bottomLeftSCurve[] = {
 
 void setup()
 
-{                 
+{        
+  //Initialized screen and backlight.
   lcd.init();
   lcd.backlight();
-
+  
+  //Characters used to create the logo
   lcd.begin(20, 4);
   lcd.createChar(0, fullBox);
   lcd.createChar(1, halfBoxBottom);
@@ -204,6 +208,7 @@ void setup()
   }
 }
 
+//Optional code to make logo blink on the lcd screen.
 void loop()
 {
   /**lcd.noDisplay();
